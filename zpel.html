@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Zpelet zpel
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #indata {
+                width: 95vw;
+                height: 80vh;
+            }
+        </style>
+        <script>
+            const avstand = (str1 = '', str2 = '') => {
+   const track = Array(str2.length + 1).fill(null).map(() =>
+   Array(str1.length + 1).fill(null));
+   for (let i = 0; i <= str1.length; i += 1) {
+      track[0][i] = i;
+   }
+   for (let j = 0; j <= str2.length; j += 1) {
+      track[j][0] = j;
+   }
+   for (let j = 1; j <= str2.length; j += 1) {
+      for (let i = 1; i <= str1.length; i += 1) {
+         const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+         track[j][i] = Math.min(
+            track[j][i - 1] + 1, // deletion
+            track[j - 1][i] + 1, // insertion
+            track[j - 1][i - 1] + indicator, // substitution
+         );
+      }
+   }
+   return track[str2.length][str1.length];
+};
+        </script>
+    </head>
+    <body>
+        <output id="poang">Zcrolla nedåt för information</output> - <output id="tid">Syntaxfel</output>
+        <p id="text">
+            Du ska läsa artikeln "Intresset för fantasy ökar" och skriva en kommentar. Kommentaren ska ha en tydlig hänvisning till artikeln, vilket innebär att du först kort måste presentera vilken text du avser att kommentera. Du ska sedan lyfta ut ett citat (med korrekt citatteknik) och kommentera detta citat. Kommentaren ska vara en åsikt eller tanke kopplad till citatet. Försök att formulera kommentaren så du kan ge ett vidgat perspektiv. Vad betyder detta? Ge ett förslag på tolkning och kom gärna med ett eget exempel. Avsluta med en mycket kort slutsats. Längd: ca 150-200 ord. 
+        </p>
+        <textarea id="indata" oninput="kontrollera()"></textarea>
+        <p id="hej">
+            Välkommen till Zpel.<br>
+            Zkriv av texten zå znabbt och zå rätt du kan. Men! Om du zer bokztaven S zka du i ztället zkriva Z. Lycka till!<br>
+        </p>
+        <script>
+            document.getElementById("tid").innerHTML = "Tiden ztartar när du zkriver den förzta bokztaven";
+            let tid = 0;
+            let startat = false;
+            let nej;
+            function kontrollera() {
+                let indata = document.getElementById("indata").value;
+                let text = document.getElementById("text").innerHTML.replace(/s/g, "z").replace(/S/g, "Z");
+                let poang = Math.floor(indata.length * 1.1 - avstand(indata, text.substring(0, indata.length * 1.1)) - tid);
+                
+                if(indata.includes("s") || indata.includes("S")) {
+                    clearInterval(nej);
+                    alert("DU FÖRLORADE!\n" + poang + " poäng!");
+                    window.location.reload();
+                }
+                
+                if(!startat) {
+                    startat = true;
+                    nej = setInterval(nedrakning, 1000);
+                }
+                document.getElementById("poang").innerHTML = poang + " poäng!";
+            }
+            
+            function nedrakning() {
+                tid++;
+                document.getElementById("tid").innerHTML = tid + " s";
+                kontrollera();
+            }
+        </script>
+    </body>
+</html>
