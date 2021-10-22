@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Lektionen slutar om
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #nedrakning {
+                text-align: center;
+                font-size: 10vw;
+                font-style: italic;
+                color: black;
+                margin-top: 0;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                position: fixed;
+                align-items: center;
+                justify-content: center;
+            }               
+        </style>
+    </head>
+    <body>
+        <p>
+            <output id="nedrakning"></output>
+        </p>
+        <script>
+            function hantera(data) {
+                //alert(data.data);
+                setInterval(nedrakning, 1000, data.data);
+            }
+            
+            function nedrakning(data) {
+                if(data.length === 0) {
+                    document.getElementById("nedrakning").innerHTML = "Slut för idag!";
+                }
+                else {
+                    let nu = new Date();
+                    let slut = new Date(data[0].slut);
+                    let avstand = slut.getTime() - nu.getTime();
+                    var dagar = Math.floor(avstand / (1000 * 60 * 60 * 24));
+                    var timmar = Math.floor((avstand % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minuter = Math.floor((avstand % (1000 * 60 * 60)) / (1000 * 60));
+                    var sekunder = Math.floor((avstand % (1000 * 60)) / 1000);
+                    document.title = data[0].namn + " slutar om...";
+                    
+                    if(avstand < 0) {
+                        document.getElementById("nedrakning").innerHTML = data[0].namn + " är slut!";
+                    }
+                    else {
+                        document.getElementById("nedrakning").innerHTML = timmar + "h " + minuter + "m " + sekunder + "s";
+                    }
+                }
+            }
+        </script>
+        <script src="https://script.google.com/a/macros/edu.huddinge.se/s/AKfycbxhh9BbQG2Wrh92OWNsxSpxvK2fAqFhrdkTxm5C1mDQxtxehre2Jz6ufu7lMWfSl3ii/exec?funktion=hantera"></script>
+    </body>
+</html>
