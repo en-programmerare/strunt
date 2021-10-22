@@ -45,16 +45,25 @@
         <p id="hej">
             Välkommen till Zpel.<br>
             Zkriv av texten zå znabbt och zå rätt du kan. Men! Om du zer bokztaven S zka du i ztället zkriva Z. Lycka till!<br>
+            (och förrezten, om du förzöker kliztra in text zå förlorar du)
         </p>
         <script>
             document.getElementById("tid").innerHTML = "Tiden ztartar när du zkriver den förzta bokztaven";
             let tid = 0;
             let startat = false;
             let nej;
+            let gammalLangd = 0;
             function kontrollera() {
                 let indata = document.getElementById("indata").value;
                 let text = document.getElementById("text").innerHTML.replace(/s/g, "z").replace(/S/g, "Z");
                 let poang = Math.floor(indata.length * 1.1 - avstand(indata, text.substring(0, indata.length * 1.1)) - tid);
+                
+                if(indata.length - gammalLangd > 1) {
+                    clearInterval(nej);
+                    alert("DU FÖRLORADE!\nDet är nämligen förbjudet att kliztra in text, tro inte att du kan lura Zpel zå enkelt! Zom ztraff får du minuzpoäng.\n" + (0 - Math.abs(poang)) + " poäng!");
+                    window.location.reload();
+                }
+                gammalLangd = indata.length;
                 
                 if(indata.includes("s") || indata.includes("S")) {
                     clearInterval(nej);
