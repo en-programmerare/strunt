@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            SpeIet SpeI
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #indata {
+                width: 95vw;
+                height: 80vh;
+            }
+            .dolt {
+                display: none;
+            }
+        </style>
+        <script>
+            const avstand = (str1 = '', str2 = '') => {
+   const track = Array(str2.length + 1).fill(null).map(() =>
+   Array(str1.length + 1).fill(null));
+   for (let i = 0; i <= str1.length; i += 1) {
+      track[0][i] = i;
+   }
+   for (let j = 0; j <= str2.length; j += 1) {
+      track[j][0] = j;
+   }
+   for (let j = 1; j <= str2.length; j += 1) {
+      for (let i = 1; i <= str1.length; i += 1) {
+         const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+         track[j][i] = Math.min(
+            track[j][i - 1] + 1, // deletion
+            track[j - 1][i] + 1, // insertion
+            track[j - 1][i - 1] + indicator, // substitution
+         );
+      }
+   }
+   return track[str2.length][str1.length];
+};
+        </script>
+    </head>
+    <body>
+        <div class="dolt">
+            <p>
+                Men vad går kursen igenom då? Såhär är det. Kursen kommer att bestå av sju moment. Den börjar med momentet kärnteknik, människa och samhälle. Där undersöker vi vilken roll kärnkraften spelar i den moderna världen. Därefter kommer vi att ha ett moment som handlar om energiteknik. Då går vi igenom ellära samt hur energi utvinns i alla typer av kraftverk, alltså vindkraft och kolkraft såväl som kärnkraft. När vi lagt grunderna går vi vidare med kärnfysik, bl.a. med fissionsrekationer, alltså reaktioner när atomkärnor klyvs, och moderation, dvs hur man håller reaktionen under kontroll. När vi förstår grunderna bakom vad som sker i en reaktor måste vi såklart tala mer om deras design. Detta görs i momentet "reaktorteknik". Vi kommer till exempel att lära oss varför reaktorer är cylindriska, och vad en kontrollstav är. Efter momentet om reaktorteknik går vi över till kärnkraftsäkerhet. Vi kommer att tala om olika säkerhetssystem och vad som gör kärnkraft säkert.
+            </p>
+            <p>
+                Det finns tre huvudsakliga sorters isolering: växtbaserad, mineralbaserad och plastbaserad. Plastbaserade och mineralbaserade isoleringsmaterial är inte förnybara (Bulow, u.å.). De två vanligaste isoleringsmaterialen i Sverige är mineralull (mineralbaserad) och cellulosaisolering (växtbaserad) enligt Pettersson (2010, 1). Mineralull kräver mycket energi att tillverka (10,8 MJ/kg), och dessutom bildas restprodukter vid tillverkning. Mineralull är återvinningsbart. Tillverkning av cellulosaisolering kräver endast 2,088 MJ/kg, och då bildas inga restprodukter. I cellulosaisolering använder man dock borsyra som impregneringsmedel. Cellulosa kan återanvändas (Pettersson, 2010, 28-32). Alternativa växtbaserade isoleringsmaterial, som kork och kokosfibrer kräver mycket lite energi att tillverka, men transporten orsakar stora koldioxidutsläpp. Kutterspån, hampa och halm isolerar inte särskilt bra (Bulow, u.å).
+            </p>
+            <p>
+                Däremot har Spår i snön ganska många personer (Martin, Barbro, Axel, Linda, "jag", Gunnel m.fl.) som ändå återkommer ganska ofta i berättelsen, även om det egentligen bara är Martin, Barbro och Axel som kan sägas vara huvudpersoner. "Jaget" i berättelsen är inte en huvudperson, hen är bara åskådare till Martins, Barbros och Axels berättelse. Ändå är det ganska många personer för en novell. Berättelsen har en bruten kronologi; i nutid följer jaget Axels spår i skogen, och så fick man följa Martins och Barbros historia sedan de flyttade till byn, som jaget tänker på medan hen går i skogen. Det är ganska atypiskt för noveller, som endast brukar ha en handling i "en" tid. Dessutom utspelar sig novellen över väldigt lång tid; man får i princip en sammanhängande berättelse från det att Martin och Barbro flyttade in för tretton år sedan (s. 6) fram till nu. Slutligen måste sägas att noveller brukar vara korta, men Spår i snön är ändå 30 sidor och alltså rätt lång för att vara en novell.
+            </p>
+            <p>
+                För det andra är stress ett stort problem idag. Det här diagrammet från Folkhälsomyndighetens artikel Stress visar hur stor andel av befolkningen som känner sig stressade. Totalt kände sig 14 % av befolkningen stressade förra året, som ni ser här på den gröna linjen, en siffra som också har ökat sakta men säkert sedan 2006. Ännu mer oroande är dock den här lila linjen, för det är 16-29 år, och den var uppe på 25 % förra året. Så hur blir man då av med stress? Jo, enligt 1177:s artikel Stress från 2018 av Louise Engström så ska man: koppla av, vara med vänner, inte jäkta och ha ett trevligt fritidsintresse. Kort sagt ska man vara som Dionysos. Dock kanske vissa av er tänker att vissa saker som Dionysos absolut inte står för, som träning och rutin är bra mot stress, vilket är sant enligt 1177:s artikel. Dessutom lever man längre om man tränar regelbundet. Däremot så är det inte särskilt mycket fysisk aktivitet som krävs för att må bra, så att dansa på en fest en gång om dagen räcker gott och väl.
+            </p>
+            <p>
+                Ytterligare problem: Slitage, och särskilt slitage orsakat av oxidation, skulle kunna åsamka kabeln allvarliga skador. Ozonskiktet, som ligger på 10-50 km höjd (SMHI, 2021), kan enligt Bradley (u.å, 58) skada beläggningen av epoxi och kanske även kolnanorören vid långvarig exponering. För att undvika detta bör kabeln mellan 10 och 50 km beläggas med oxidationsskyddsmedel, som t.ex. ett tunt lager guld eller platina, som är ädla metaller och sålunda inte oxideras (Henriksson, 2011, 225). Kiseldioxid, SiO2, kan också fungera bra som oxidationsskydd. Det kan appliceras i ett tunnare lager och är dessutom billigare (Bradley, u.å, 58). Kiseldioxid förefaller alltså vara det bästa alternativet. För att förhindra andra typer av slitage, t.ex. av vind och små partiklar i atmosfären eller i rymden bör hela kolnanoröret täckas av en beläggning, förslagsvis av epoxi eftersom det är ett billigt och effektivt sätt att motverka slitage (Bradley, u.å, 34).
+            </p>
+            <p>
+                Dessvärre finns det ställen på nätet där näthat accepteras i så stor utsträckning att det oftast inte polisanmäls. Johan Rosell och Mårten Schultz skriver i artikeln "Gamingvärlden är ett laglöst land" (2019) att de inte hittade en enda dom om brott i datorspel på nätet. De skriver att det kan bero på att folk inte vet var gränserna går, men också att man betraktar spelvärlden som avskilt från den verkliga världen. Även om detta är allvarligt, och något som måste arbetas vidare på, skriver Rosell och Schultz också att hetsbrott i spelsammanhang ofta leder till att spelaren stängs av, vilket visar att det finns konsekvenser även för brott i spelvärlden, även om allvarligare följder vore att föredra. Sammanfattningsvis har vi kommit mycket långt i arbetet mot näthat. Väl fungerande funktioner för att blockera användare och anmäla meddelanden leder till fler domar än förut, och det går att åstadkomma en nolltolerans mot näthat hos befolkningen. Näthat är inte ett stort samhällsproblem, men vi måste ändå bekämpa det.
+            </p>
+            <p>
+                Det här är historien om spelet som inte tog världen med storm: Zpel. Allting började på en svenskalektion, när Zpels skapare läste artikeln "Fantazy säljer som aldrig förr" av Angelica Risberg Stameus i Svenska Dagbladet (2002-11-25). Eftersom det såg ganska löjligt ut att stava "fantazy" med Z föddes idén efter ett tag idén att man kunde göra ett spel som gick ut på att byta ut alla S mot Z. Sagt och gjort. På rasten mellan svenskan och tekniken skapades det första utkastet till spelet Zpel. Det var ganska likt dagens variant, förutom att det bara fanns en text, och att poängsystemet inte tog med tid i beräkningen. Några smärre uppdateringar kom under de följande dagarna, där tidtagning och slumpmässigt valda texter lades till. Alla texter är skrivna av spelets skapare och hens kompisar på gymnasiet, så att om du hittar något fel i dem är det förklaringen. Däremot orkade inte skaparen göra sidan finare, för vet ni ens hur jobbigt CSS (en sorts kod som berättar hur webbsidor ska se ut) är!?
+            </p>
+        </div>
+        <p id="hej">
+            Välkommen tiII SpeI.<br>
+            Skriv av texten så snabbt och så rätt du kan. Men! Om du ser ett litet l zka du i stäIIet skriva ett stort I. Lycka tiII!<br>
+            (och förresten, om du försöker kIistra in text så förlorar du)
+        </p>
+        <output id="poang">0 poäng</output> &ndash; <output id="tid">Syntaxfel</output>
+        <p id="text">
+            
+        </p>
+        <textarea id="indata" oninput="kontrollera()"></textarea>
+        <script>
+            document.getElementById("tid").innerHTML = "Tiden startar när du skriver den första bokstaven";
+            let tid = 0;
+            let startat = false;
+            let nej;
+            let gammalLangd = 0;
+            
+            valjSlumpmassigt();
+            
+            function kontrollera() {
+                let indata = document.getElementById("indata").value;
+                let text = document.getElementById("text").innerHTML.replace(/s/g, "z").replace(/S/g, "Z");
+                let poang = Math.floor(indata.length * 1.1 - avstand(indata, text.substring(0, indata.length * 1.1)) - tid);
+                
+                if(indata.length - gammalLangd > 1) {
+                    clearInterval(nej);
+                    alert("DU FÖRLORADE!\nDet är nämIigen förbjudet att kIistra in text, tro inte att du kan Iura SpeI zå enkeIt! Som straff får du minuspoäng.\n" + (0 - Math.abs(poang)) + " poäng!");
+                    window.location.reload();
+                    return;
+                }
+                gammalLangd = indata.length;
+                
+                if(indata.includes("l")) {
+                    clearInterval(nej);
+                    alert("DU FÖRLORADE!\n" + poang + " poäng!");
+                    window.location.reload();
+                }
+                
+                if(!startat) {
+                    startat = true;
+                    nej = setInterval(nedrakning, 1000);
+                }
+                document.getElementById("poang").innerHTML = poang + " poäng!";
+            }
+            
+            function nedrakning() {
+                tid++;
+                document.getElementById("tid").innerHTML = tid + " s";
+                kontrollera();
+            }
+            
+            function valjSlumpmassigt() {
+                let textElement = document.getElementsByClassName("dolt")[0].children;
+                let ind = Math.floor(Math.random() * textElement.length);
+                
+                document.getElementById("text").innerHTML = textElement[ind].innerHTML;
+            }
+        </script>
+    </body>
+</html>
